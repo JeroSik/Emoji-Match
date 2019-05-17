@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var game = EmojiMatch()
+    
     var flipCount = 0 {
         didSet {
             flipCountLabel.text = "Flips: \(flipCount)"
