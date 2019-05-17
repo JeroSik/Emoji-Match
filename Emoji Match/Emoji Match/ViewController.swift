@@ -9,6 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var flipCount = 0 {
+        didSet {
+            flipCountLabel.text = "Flips: \(flipCount)"
+        }
+    }
+    
+    @IBOutlet weak var flipCountLabel: UILabel!
 
     @IBAction func touchSmileCard(_ sender: UIButton) {
         flipCard(withEmoji: "😀", on: sender)
@@ -19,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     func flipCard(withEmoji emoji: String, on button: UIButton) {
-        print("flipCard withEmoji \(emoji)")
+        flipCount += 1
         
         if button.currentTitle == emoji {
             button.setTitle("", for: UIControl.State.normal)
