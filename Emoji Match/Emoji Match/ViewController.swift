@@ -16,18 +16,19 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var flipCountLabel: UILabel!
-
-    @IBAction func touchSmileCard(_ sender: UIButton) {
-        flipCard(withEmoji: "😀", on: sender)
-    }
     
-    @IBAction func touchGhostCard(_ sender: UIButton) {
-        flipCard(withEmoji: "👻", on: sender)
+    @IBOutlet var cardButtons: [UIButton]!
+    
+    var emojiChoices = ["😃", "👻", "👻", "😃"]
+    
+    @IBAction func touchCard(_ sender: UIButton) {
+        flipCount += 1
+        if let cardNumber = cardButtons.index(of: sender) {
+            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+        }
     }
     
     func flipCard(withEmoji emoji: String, on button: UIButton) {
-        flipCount += 1
-        
         if button.currentTitle == emoji {
             button.setTitle("", for: UIControl.State.normal)
             button.backgroundColor = #colorLiteral(red: 0.6392156863, green: 0.6666666667, blue: 0.6823529412, alpha: 1)
@@ -37,4 +38,3 @@ class ViewController: UIViewController {
         }
     }
 }
-
