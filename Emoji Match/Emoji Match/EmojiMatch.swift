@@ -11,8 +11,13 @@ import Foundation
 class EmojiMatch {
     var cards = [Card] ()
     
-    func chooseCard(at Index: Int) {
-        
+    func chooseCard(at index: Int) {
+        if cards[index].isFaceUp {
+            cards[index].isFaceUp = false
+        } else {
+            cards[index].isFaceUp = true
+        }
+        // TODO: Case for card match
     }
     
     init(numberOfPairsOfCards: Int) {
