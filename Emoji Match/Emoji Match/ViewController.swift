@@ -46,11 +46,10 @@ class ViewController: UIViewController {
     
     var emojiChoices = ["😃", "👻", "💩", "😈", "🤖", "👀", "🐶", "🍆", "❤️"]
     
-    var emoji = Dictionary<Int, String>()
+    var emoji = [Int:String]()
     
-    func emoji(for card: Card) -> String{
-        // TODO: Choose an emoji
-        return "?"
+    func emoji(for card: Card) -> String {
+        return emoji[card.identifier] ?? "?"
     }
     
     
