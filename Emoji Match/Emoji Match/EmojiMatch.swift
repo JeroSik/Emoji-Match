@@ -39,6 +39,8 @@ class EmojiMatch {
             let card = Card()
             cards += [card, card]
         }
-        // TODO: Shuffle the cards
+        
+        // TODO: Shuffle cards
+        cards.shuffle()
     }
 }
