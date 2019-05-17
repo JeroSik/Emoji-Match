@@ -14,6 +14,8 @@
 		3A30CD23228DFDC8008A0B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A30CD21228DFDC8008A0B07 /* LaunchScreen.storyboard */; };
 		3A30CD2E228DFDC8008A0B07 /* Emoji_MatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30CD2D228DFDC8008A0B07 /* Emoji_MatchTests.swift */; };
 		3A30CD39228DFDC8008A0B07 /* Emoji_MatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30CD38228DFDC8008A0B07 /* Emoji_MatchUITests.swift */; };
+		3A30CD4A228F08C7008A0B07 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30CD49228F08C7008A0B07 /* Card.swift */; };
+		3A30CD4C228F0909008A0B07 /* EmojiMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30CD4B228F0909008A0B07 /* EmojiMatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		3A30CD34228DFDC8008A0B07 /* Emoji MatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Emoji MatchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A30CD38228DFDC8008A0B07 /* Emoji_MatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji_MatchUITests.swift; sourceTree = "<group>"; };
 		3A30CD3A228DFDC8008A0B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A30CD49228F08C7008A0B07 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3A30CD4B228F0909008A0B07 /* EmojiMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				3A30CD1A228DFDC7008A0B07 /* ViewController.swift */,
 				3A30CD1C228DFDC7008A0B07 /* Main.storyboard */,
+				3A30CD4B228F0909008A0B07 /* EmojiMatch.swift */,
+				3A30CD49228F08C7008A0B07 /* Card.swift */,
 				3A30CD46228E007D008A0B07 /* Supporting Files */,
 				3A30CD24228DFDC8008A0B07 /* Info.plist */,
 			);
@@ -264,8 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A30CD4C228F0909008A0B07 /* EmojiMatch.swift in Sources */,
 				3A30CD1B228DFDC7008A0B07 /* ViewController.swift in Sources */,
 				3A30CD19228DFDC7008A0B07 /* AppDelegate.swift in Sources */,
+				3A30CD4A228F08C7008A0B07 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
