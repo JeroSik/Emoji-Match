@@ -30,13 +30,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func createNewGame(_ sender: UIButton) {
-        game = EmojiMatch(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        // Reset flip counter
+        flipCount = 0
+        
+        // Reset EmojiHoices
         emojiChoices = ["😃", "👻", "💩", "😈", "🤖", "👀", "🐶", "🍆", "❤️", "🎱"]
         emoji = [Int:String]()
+        
+        // Reset Game
+        game = EmojiMatch(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        
         for index in cardButtons.indices  {
-            let button = cardButtons[index]
+            let button =  cardButtons[index]
             button.setTitle("", for: UIControl.State.normal)
-            button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            button.backgroundColor = #colorLiteral(red: 0.6978331804, green: 0.7220336199, blue: 0.7390760779, alpha: 1)
         }
     }
     

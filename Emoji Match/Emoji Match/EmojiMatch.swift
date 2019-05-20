@@ -13,8 +13,16 @@ class EmojiMatch {
     var cards = [Card] ()
     // Initialize optional of whether or not a card is facing up and return index
     var indexOfOneAndOnlyFaceUpCard: Int?
+    // Initialize array of themes
+    var themes: [String: Theme] = [
+        "Smileys": Theme(emojiList: ["😃", "😍", "😈", "😷", "🥶", "😡", "😨", "🤢", "😎", "😞"], backgroundColor: #colorLiteral(red: 1, green: 0.8813909292, blue: 0.1847001314, alpha: 1), cardColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),
+        "People": Theme(emojiList: ["👶", "💂‍♀️", "👩‍🚀", "👩‍✈️", "🧙‍♂️", "💃", "🧖‍♀️", "🎅", "👨‍🏫", "👩‍🍳"], backgroundColor: #colorLiteral(red: 0.5787474513, green: 0.3215198815, blue: 0, alpha: 1), cardColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)),
+        "Animals": Theme(emojiList: ["🐶", "🐹", "🦊", "🐼", "🐨", "🐸", "🙉", "🐔", "🐧", "🐬"], backgroundColor: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), cardColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)),
+        "Weather": Theme(emojiList: ["☀️", "🌤", "⛅️", "🌥", "☁️", "🌦", "🌧", "⛈", "🌩", "🌨"], backgroundColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), cardColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)),
+        "Food": Theme(emojiList: ["🍎", "🍑", "🍍", "🥝", "🍣", "🍙", "🍰", "🍭", "🍿", "🥜"], backgroundColor: #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), cardColor: #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1))
+    ]
     
-    // MARK: Handle behvaior for choosen cards
+    // MARK: Handle behavior for choosen cards
     func chooseCard(at index: Int) {
         //  Check to make sure card isn't already matched
         if !cards[index].isMatched {
@@ -37,6 +45,11 @@ class EmojiMatch {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
+    }
+    
+    // MARK: Handle behavior for choosing a random theme
+    func getRandomTheme() -> Theme {
+        return themes.randomElement()!.value
     }
     
     // MARK: Initializer for Control
