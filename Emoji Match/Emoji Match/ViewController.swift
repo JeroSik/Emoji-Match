@@ -10,7 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     lazy var game = EmojiMatch(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    lazy var theme = game.getRandomTheme()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        startNewGame()
+    }
+
     var flipCount = 0 {
         didSet {
             flipCountLabel.text = "Flips: \(flipCount)"
@@ -30,20 +36,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func createNewGame(_ sender: UIButton) {
-        // Reset flip counter
-        flipCount = 0
-        
-        // Reset EmojiHoices
-        emojiChoices = ["😃", "👻", "💩", "😈", "🤖", "👀", "🐶", "🍆", "❤️", "🎱"]
-        emoji = [Int:String]()
-        
-        // Reset Game
+        startNewGame()
+    }
+    
+    func startNewGame() {
+        // Create new game instance
         game = EmojiMatch(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         
+        // Change theme
+        theme = game.getRandomTheme()
+        emoji = [Int:String]()
+        emojiChoices = theme.emojiList
+        view.backgroundColor = theme.backgroundColor
+        
+        // Reset cards
         for index in cardButtons.indices  {
             let button =  cardButtons[index]
             button.setTitle("", for: UIControl.State.normal)
-            button.backgroundColor = #colorLiteral(red: 0.6978331804, green: 0.7220336199, blue: 0.7390760779, alpha: 1)
+            button.backgroundColor = theme.cardColor
         }
     }
     
@@ -54,15 +64,15 @@ class ViewController: UIViewController {
             
             if card.isFaceUp {
                 button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                button.backgroundColor = theme.cardColor
             } else {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.6392156863, green: 0.6666666667, blue: 0.6823529412, alpha: 0) : #colorLiteral(red: 0.6392156863, green: 0.6666666667, blue: 0.6823529412, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.6392156863, green: 0.6666666667, blue: 0.6823529412, alpha: 0) : theme.cardColor
             }
         }
     }
     
-    var emojiChoices = ["😃", "👻", "💩", "😈", "🤖", "👀", "🐶", "🍆", "❤️", "🎱"]
+    lazy var emojiChoices = theme.emojiList
     
     var emoji = [Int:String]()
     
