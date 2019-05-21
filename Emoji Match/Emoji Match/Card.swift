@@ -10,15 +10,22 @@ import Foundation
 
 struct Card {
     // Initialize card property variables
-    var isFaceUp = false
+    var isFaceUp = false {
+        didSet {
+            if isFaceUp {
+                hasBeenViewed = true
+            }
+        }
+    }
     var isMatched = false
     var identifier: Int
+    var hasBeenViewed = false
     
     // Initialize identifier
-    static var identifierFactory = 0
+    private static var identifierFactory = 0
     
     // MARK: Static function go assign unique identifiers
-    static func getUniqueIdentifier() -> Int {
+    private static func getUniqueIdentifier() -> Int {
         identifierFactory += 1
         return identifierFactory
     }
